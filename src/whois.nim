@@ -2,7 +2,7 @@
   | :Author: Thiago Navarro
   | :Email: thiago@oxyoy.com
   | **Created at:** 06/06/2021 23:24:50 Sunday
-  | **Modified at:** 06/07/2021 02:37:24 PM Monday
+  | **Modified at:** 06/07/2021 03:08:38 PM Monday
 
   ----
 
@@ -30,25 +30,25 @@ proc toDomain*(fullDomain: string): Domain {.noSideEffect.} =
   result.tld = splitted[1]
 
 
-proc update*(self: var Domain) =
+proc update*(self: var Domain, noCache = false) =
   ## Updates the domain with api data
   if self.error != DomainError.none: return
-  self.apiFetch()
+  discard api_doyosi.apiFetch(self, noCache)
 
 
-proc whois*(domain: string): Domain {.inline.} =
+proc whois*(domain: string, noCache = false): Domain {.inline.} =
   ## A alias for:
   ## .. code-block:: nim
   ##   var domain = "duckduckgo.com".toDomain
   ##   domain.update()
   result = domain.toDomain()
-  result.update()
+  result.update(noCache)
 
 
 when isMainModule:
   import times
 
-  echo now()
+  echo cputime()
 
   var domain = "google.co".toDomain
   var a: DomainData
@@ -57,12 +57,26 @@ when isMainModule:
 
   domain.update()
 
-  echo now()
+  echo cputime()
   echo domain
 
   echo "update again"
 
   domain.update()
 
-  echo now()
+  echo cputime()
+  echo domain
+
+  echo "update again"
+
+  domain.update()
+
+  echo cputime()
+  echo domain
+
+  echo "update again"
+
+  domain.update(noCache = true)
+
+  echo cputime()
   echo domain

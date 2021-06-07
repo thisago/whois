@@ -3,7 +3,7 @@
   :Email: thiago@oxyoy.com
 
   **Created at:** 06/07/2021 10:36:49 Monday
-  **Modified at:** 06/07/2021 02:41:39 PM Monday
+  **Modified at:** 06/07/2021 03:08:03 PM Monday
 
   ----
 
@@ -31,11 +31,11 @@ import ./core
 
 
 const apiConfigs = (
-  # url: "https://whois.doyosi.com/whois",
-    # referrer: "https://whois.doyosi.com/",
+  url: "https://whois.doyosi.com/whois",
+  referrer: "https://whois.doyosi.com/",
 
-  url: "http://127.0.0.1/u3/apache/DoyosiWhois/",
-  referrer: "http://127.0.0.1/u3/apache/DoyosiWhois/",
+  # url: "http://127.0.0.1/u3/apache/DoyosiWhois/",
+    # referrer: "http://127.0.0.1/u3/apache/DoyosiWhois/",
 
   bodyTemplate: "domain=$1",
   contentType: "application/x-www-form-urlencoded; charset=UTF-8",
@@ -44,19 +44,23 @@ const apiConfigs = (
 )
 
 
-proc apiFetch*(self: var Domain) =
+proc apiFetch*(self: var Domain, noCache = false): bool =
   ## This function fetch the data of domain and returns a `ApiResponse` instance
-  var response = apiRequest(self.full)
+  ## Returns true on request success
+  result = true
+  var response = apiRequest(self.full, noCache)
   if response.code != Http200:
     self.error = DomainError.apiError
+    return false
   let json = response.body.parseJson
 
   if json{"status"}.getStr != "success":
     self.error = DomainError.unknownAvaliability
+    return false
   self.parse json{"data"}.getStr
 
 
-proc apiRequest(domain: string): ApiResponse {.cache.} =
+proc apiRequest(domain: string): ApiResponse {.cacheOpt: {clearParam}.} =
   var
     headers = newHttpHeaders({
       "content-type": apiConfigs.contentType,
@@ -72,6 +76,7 @@ proc apiRequest(domain: string): ApiResponse {.cache.} =
 
   result.body = response.body
   result.code = response.code
+
 
 
 proc parse(self: var Domain, data: string) =

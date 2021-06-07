@@ -2,7 +2,7 @@
   | :Author: Thiago Navarro
   | :Email: thiago@oxyoy.com
   | **Created at:** 06/07/2021 10:38:20 Monday
-  | **Modified at:** 06/07/2021 02:38:00 PM Monday
+  | **Modified at:** 06/07/2021 03:04:36 PM Monday
 
   ----
 
@@ -44,6 +44,7 @@ type
     avaliable*: bool
     error*: DomainError
     data*: DomainData
+    # cached*: bool # TODO
 
 # Api types
 type
@@ -51,6 +52,7 @@ type
     ## The response got by API
     code*: HttpCode ## The `Response` http code
     body*: string   ## The `Response` body
+    # cached*: bool   ## Inform if was cached TODO
 
 proc full*(self: Domain): string {.noSideEffect.} =
   ## Join the name with tld to get the full domain name
