@@ -2,7 +2,7 @@
   | :Author: Thiago Navarro
   | :Email: thiago@oxyoy.com
   | **Created at:** 06/07/2021 10:38:20 Monday
-  | **Modified at:** 06/07/2021 02:21:57 PM Monday
+  | **Modified at:** 06/07/2021 02:38:00 PM Monday
 
   ----
 
@@ -65,7 +65,8 @@ const invalidDateChars = AllChars - Digits - {'T', 'Z', ':', '-'}
 proc toDate*(s: string): DateTime =
   let endIndex = s.find invalidDateChars
   var cleaned = s.strip
-  if endIndex > -1:
-    cleaned = cleaned.substr(0, endIndex - 1).strip
+  if endIndex > -1: cleaned = cleaned.substr(0, endIndex - 1).strip
+
+  if cleaned.len == 0: return
 
   return parse(cleaned, "yyyy-MM-dd'T'HH:mm:sszzz", utc())

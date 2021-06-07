@@ -3,7 +3,7 @@
   :Email: thiago@oxyoy.com
 
   **Created at:** 06/07/2021 10:36:49 Monday
-  **Modified at:** 06/07/2021 02:33:21 PM Monday
+  **Modified at:** 06/07/2021 02:41:39 PM Monday
 
   ----
 
@@ -21,7 +21,7 @@ from std/httpcore import Http200, `$`
 from std/httpclient import newHttpHeaders, newHttpClient, post, code, `==`, body
 from std/uri import encodeUrl
 from std/json import parseJson, `{}`, getStr
-import std/strutils
+import std/strutils except find
 import std/with
 from std/sugar import collect
 
@@ -89,6 +89,8 @@ proc parse(self: var Domain, data: string) =
     expireDate = data.get("Registry Expiry Date: ").toDate
     id = data.get("Registry Domain ID: ")
     registrantCountry = data.get("Registry Domain ID: ")
+    registrantOrganization = data.get("Registrant Organization: ")
+    registrantState = data.get("Registrant State/Province: ")
     registrar = data.get("Registrar: ")
     registrarAbuseContactEmail = data.get("Registrar Abuse Contact Email: ")
     registrarAbuseContactPhone = data.get("Registrar Abuse Contact Phone: ")
@@ -121,3 +123,6 @@ proc get(data, val: string): string =
   let croppedStart = data.substr(index + val.len).strip
   result = croppedStart.substr(
     0, croppedStart.find(apiConfigs.messageNewline) - 1)
+
+proc find(s, sub: string): int =
+  strutils.find(s.toLowerAscii(), sub.toLowerAscii())

@@ -2,7 +2,7 @@
   | :Author: Thiago Navarro
   | :Email: thiago@oxyoy.com
   | **Created at:** 06/06/2021 23:24:50 Sunday
-  | **Modified at:** 06/07/2021 02:34:13 PM Monday
+  | **Modified at:** 06/07/2021 02:37:24 PM Monday
 
   ----
 
@@ -50,7 +50,7 @@ when isMainModule:
 
   echo now()
 
-  var domain = "google.com".toDomain
+  var domain = "google.co".toDomain
   var a: DomainData
 
   echo domain
