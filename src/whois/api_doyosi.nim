@@ -3,7 +3,7 @@
   :Email: thiago@oxyoy.com
 
   **Created at:** 06/07/2021 10:36:49 Monday
-  **Modified at:** 06/07/2021 02:18:00 PM Monday
+  **Modified at:** 06/07/2021 02:33:21 PM Monday
 
   ----
 
@@ -29,6 +29,7 @@ import kashae
 
 import ./core
 
+
 const apiConfigs = (
   # url: "https://whois.doyosi.com/whois",
     # referrer: "https://whois.doyosi.com/",
@@ -42,21 +43,18 @@ const apiConfigs = (
   messageNewline: "<br />\r\n"
 )
 
+
 proc apiFetch*(self: var Domain) =
   ## This function fetch the data of domain and returns a `ApiResponse` instance
-
   var response = apiRequest(self.full)
-
   if response.code != Http200:
     self.error = DomainError.apiError
-
-  let
-    json = response.body.parseJson
+  let json = response.body.parseJson
 
   if json{"status"}.getStr != "success":
     self.error = DomainError.unknownAvaliability
-
   self.parse json{"data"}.getStr
+
 
 proc apiRequest(domain: string): ApiResponse {.cache.} =
   var
@@ -68,7 +66,6 @@ proc apiRequest(domain: string): ApiResponse {.cache.} =
       "accept": "application/json, text/javascript, */*; q=0.01",
     })
     client = newHttpClient(headers = headers)
-
   let
     body = apiConfigs.bodyTemplate % domain.encodeUrl()
     response = client.post(apiConfigs.url, body)
@@ -76,10 +73,10 @@ proc apiRequest(domain: string): ApiResponse {.cache.} =
   result.body = response.body
   result.code = response.code
 
+
 proc parse(self: var Domain, data: string) =
   ## Parse the API response and saves in the `Domain` instance
-  let
-    domain = self.full
+  let domain = self.full
 
   self.avaliable = data.toLowerAscii().find(
     (apiConfigs.takenMessage % domain).toLowerAscii()
@@ -109,14 +106,11 @@ proc parse(self: var Domain, data: string) =
       mdata = mdata.substr(index + toFind.len).strip # delete everything from
                                                       # begin of match and save
                                                       # on itself
-
       index = mdata.find toFind # update the index
 
       #[ collect ]#
       mdata.substr( # Delete all from newline
-        0,
-        mdata.find(apiConfigs.messageNewline) - 1
-      )
+        0, mdata.find(apiConfigs.messageNewline) - 1)
 
 
 proc get(data, val: string): string =
@@ -125,8 +119,5 @@ proc get(data, val: string): string =
   if index == -1: return
 
   let croppedStart = data.substr(index + val.len).strip
-
   result = croppedStart.substr(
-    0,
-    croppedStart.find(apiConfigs.messageNewline) - 1
-  )
+    0, croppedStart.find(apiConfigs.messageNewline) - 1)
