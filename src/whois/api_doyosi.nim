@@ -2,14 +2,16 @@
   | :Author: Thiago Navarro
   | :Email: thiago@oxyoy.com
   | **Created at:** 06/07/2021 10:36:49 Monday
-  | **Modified at:** 06/07/2021 01:46:48 PM Monday
+  | **Modified at:** 06/07/2021 02:04:32 PM Monday
 
   ----
 
   api_doyosi
-  ----
+  ----------
 
   Doyosi free API implementation
+
+  API source code: https://github.com/Karyazilim/DoyosiWhois
 ]##
 
 {.experimental: "codeReordering".}
@@ -20,6 +22,7 @@ from std/uri import encodeUrl
 from std/json import parseJson, `{}`, getStr
 import std/strutils
 import std/with
+from std/sugar import collect
 
 import kashae
 
@@ -96,14 +99,30 @@ proc parse(self: var Domain, data: string) =
     whoisDBLastUpdate = data.get("Last update of whois database: ").toDate
     whoisServer = data.get("Registrar WHOIS Server: ")
 
+  self.data.nameServers = collect:
+    const toFind = "Name Server: "
+    var
+      mdata = data
+      index = mdata.find(toFind)
+    while index > -1:
+      mdata = mdata.substr(index + toFind.len).strip
 
-proc get*(data, val: string): string =
-  let
-    index = data.find val
+      index = mdata.find(toFind)
+
+      #[ collect ]#
+      mdata.substr(
+        0,
+        mdata.find(apiConfigs.messageNewline) - 1
+      )
+
+
+
+proc get(data, val: string): string =
+  ## Gets the data from response
+  let index = data.find val
   if index == -1: return
 
-  let
-    croppedStart = data.substr(index + val.len).strip
+  let croppedStart = data.substr(index + val.len).strip
 
   result = croppedStart.substr(
     0,

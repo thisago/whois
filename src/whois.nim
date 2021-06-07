@@ -2,26 +2,22 @@
   | :Author: Thiago Navarro
   | :Email: thiago@oxyoy.com
   | **Created at:** 06/06/2021 23:24:50 Sunday
-  | **Modified at:** 06/07/2021 01:47:35 PM Monday
+  | **Modified at:** 06/07/2021 01:51:55 PM Monday
 
   ----
 
   whois
-  ----
+  -----
 
   Whois free client
 ]##
 
 from std/strutils import split, strip
 
-# from times import Date
-
-
 import whois/core; export core
 
 # API selection
 import whois/api_doyosi
-
 
 proc toDomain*(fullDomain: string): Domain {.noSideEffect.} =
   ## Convert a full domain string in a `Domain` instance
