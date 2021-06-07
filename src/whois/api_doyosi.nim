@@ -1,8 +1,9 @@
 ##[
-  | :Author: Thiago Navarro
-  | :Email: thiago@oxyoy.com
-  | **Created at:** 06/07/2021 10:36:49 Monday
-  | **Modified at:** 06/07/2021 02:04:32 PM Monday
+  :Author: Thiago Navarro
+  :Email: thiago@oxyoy.com
+
+  **Created at:** 06/07/2021 10:36:49 Monday
+  **Modified at:** 06/07/2021 02:18:00 PM Monday
 
   ----
 
@@ -100,21 +101,22 @@ proc parse(self: var Domain, data: string) =
     whoisServer = data.get("Registrar WHOIS Server: ")
 
   self.data.nameServers = collect:
-    const toFind = "Name Server: "
+    const toFind = "Name Server: " # The value name to get
     var
-      mdata = data
-      index = mdata.find(toFind)
-    while index > -1:
-      mdata = mdata.substr(index + toFind.len).strip
+      mdata = data # A mutable copy of data
+      index = mdata.find toFind
+    while index > -1: # While finding the value
+      mdata = mdata.substr(index + toFind.len).strip # delete everything from
+                                                      # begin of match and save
+                                                      # on itself
 
-      index = mdata.find(toFind)
+      index = mdata.find toFind # update the index
 
       #[ collect ]#
-      mdata.substr(
+      mdata.substr( # Delete all from newline
         0,
         mdata.find(apiConfigs.messageNewline) - 1
       )
-
 
 
 proc get(data, val: string): string =
