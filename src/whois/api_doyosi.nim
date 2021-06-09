@@ -3,7 +3,7 @@
   :Email: thiago@oxyoy.com
 
   **Created at:** 06/07/2021 10:36:49 Monday
-  **Modified at:** 06/07/2021 03:08:03 PM Monday
+  **Modified at:** 06/09/2021 11:05:10 AM Wednesday
 
   ----
 
@@ -35,7 +35,7 @@ const apiConfigs = (
   referrer: "https://whois.doyosi.com/",
 
   # url: "http://127.0.0.1/u3/apache/DoyosiWhois/",
-    # referrer: "http://127.0.0.1/u3/apache/DoyosiWhois/",
+  # referrer: "http://127.0.0.1/u3/apache/DoyosiWhois/",
 
   bodyTemplate: "domain=$1",
   contentType: "application/x-www-form-urlencoded; charset=UTF-8",
