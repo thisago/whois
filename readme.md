@@ -3,7 +3,7 @@
   :Email: thiago@oxyoy.com
 
   **Created at:** 06/09/2021 12:05:16 Wednesday
-  **Modified at:** 06/09/2021 01:08:20 PM Wednesday
+  **Modified at:** 06/09/2021 02:16:43 PM Wednesday
 
   ------------------------------------------------------------------------------
 
@@ -15,7 +15,8 @@
 
 # Whois.nim
 
-The Whois.nim is a simple whois client. **With cache!**
+The Whois.nim is a simple whois client.
+**With cache (kashae)!**
 
 ---
 
@@ -43,6 +44,7 @@ nimble install -y
 
 ## Usage
 
+example/example.nim
 ```nim
 import whois
 
@@ -55,6 +57,13 @@ domain.update() # Get data from API
 
 echo domain
 ```
+
+Run:
+```bash
+nim c -r -d:ssl -d:release example/example.nim
+```
+
+NOTE: Compile with `-d:ssl`
 
 ---
 
