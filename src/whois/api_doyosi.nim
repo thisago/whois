@@ -3,7 +3,7 @@
   :Email: thiago@oxyoy.com
 
   **Created at:** 06/07/2021 10:36:49 Monday
-  **Modified at:** 06/09/2021 11:05:10 AM Wednesday
+  **Modified at:** 06/09/2021 12:37:40 PM Wednesday
 
   ----
 
@@ -21,7 +21,8 @@ from std/httpcore import Http200, `$`
 from std/httpclient import newHttpHeaders, newHttpClient, post, code, `==`, body
 from std/uri import encodeUrl
 from std/json import parseJson, `{}`, getStr
-import std/strutils except find
+from std/strutils import `%`, toLowerAscii, strip
+
 import std/with
 from std/sugar import collect
 

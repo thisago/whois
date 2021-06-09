@@ -2,7 +2,7 @@
   | :Author: Thiago Navarro
   | :Email: thiago@oxyoy.com
   | **Created at:** 06/06/2021 23:22:26 Sunday
-  | **Modified at:** 06/07/2021 02:31:57 PM Monday
+  | **Modified at:** 06/09/2021 12:25:15 PM Wednesday
 
   ----
 
@@ -15,6 +15,9 @@
 import unittest
 
 import whois
+
+echo "[NOTICE] The tests will make some requests to API. Depending of your " &
+     "internet speed, may take some time"
 
 test "Unavaliable":
   check whois("google.com").avaliable == false

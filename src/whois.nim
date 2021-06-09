@@ -2,7 +2,7 @@
   | :Author: Thiago Navarro
   | :Email: thiago@oxyoy.com
   | **Created at:** 06/06/2021 23:24:50 Sunday
-  | **Modified at:** 06/07/2021 03:08:38 PM Monday
+  | **Modified at:** 06/09/2021 12:25:27 PM Wednesday
 
   ----
 
@@ -17,7 +17,7 @@ from std/strutils import split, strip
 import whois/core; export core
 
 # API selection
-import whois/api_doyosi
+from whois/api_doyosi import nil
 
 
 proc toDomain*(fullDomain: string): Domain {.noSideEffect.} =
@@ -33,7 +33,8 @@ proc toDomain*(fullDomain: string): Domain {.noSideEffect.} =
 proc update*(self: var Domain, noCache = false) =
   ## Updates the domain with api data
   if self.error != DomainError.none: return
-  discard api_doyosi.apiFetch(self, noCache)
+
+  if api_doyosi.apiFetch(self, noCache): return # If any error, try next API
 
 
 proc whois*(domain: string, noCache = false): Domain {.inline.} =
@@ -41,6 +42,9 @@ proc whois*(domain: string, noCache = false): Domain {.inline.} =
   ## .. code-block:: nim
   ##   var domain = "duckduckgo.com".toDomain
   ##   domain.update()
+  runnableExamples:
+    assert whois("bing.com").avaliable == false
+    assert whois("google.com").registrantOrganization == "Google Inc."
   result = domain.toDomain()
   result.update(noCache)
 
