@@ -3,13 +3,15 @@
   :Email: thiago@oxyoy.com
 
   **Created at:** 06/09/2021 12:05:16 Wednesday
-  **Modified at:** 06/09/2021 01:05:30 PM Wednesday
+  **Modified at:** 06/09/2021 01:08:20 PM Wednesday
 
   ------------------------------------------------------------------------------
 
   readme
   ------------------------------------------------------------------------------
 -->
+
+<!-- Hello! Thanks for interest in my lib! :) -->
 
 # Whois.nim
 
@@ -76,8 +78,6 @@ All definitions is in `src/whois/core.nim`.
     ```nim
     if api_APINAME.apiFetch(self, noCache): return # If any error, try next API
     ```
-
-<!-- - Import it and call in `src/whois.nim` like was made to `src/whois/api_doyosi.nim`. -->
 
 ## NOTICE
 
