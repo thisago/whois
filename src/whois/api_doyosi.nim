@@ -3,7 +3,7 @@
   :Email: thiago@oxyoy.com
 
   **Created at:** 06/07/2021 10:36:49 Monday
-  **Modified at:** 06/09/2021 09:26:33 PM Wednesday
+  **Modified at:** 06/09/2021 10:45:24 PM Wednesday
 
   ----
 
@@ -104,6 +104,8 @@ proc parse(self: var Domain, data: string) =
     updatedDate = data.get("Updated Date: ").toDate
     whoisDBLastUpdate = data.get("Last update of whois database: ").toDate
     whoisServer = data.get("Registrar WHOIS Server: ")
+
+  self.data.nameServers = @[]
 
   block:
     const toFind = "Name Server: " # The value name to get
