@@ -1,13 +1,14 @@
 ##[
-  | :Author: Thiago Navarro
-  | :Email: thiago@oxyoy.com
-  | **Created at:** 06/06/2021 23:24:50 Sunday
-  | **Modified at:** 06/09/2021 10:41:14 PM Wednesday
+  :Author: Thiago Navarro
+  :Email: thiago@oxyoy.com
 
-  ----
+  **Created at:** 06/06/2021 23:24:50 Sunday
+  **Modified at:** 06/09/2021 10:49:16 PM Wednesday
+
+  ------------------------------------------------------------------------------
 
   whois
-  -----
+  ------------------------------------------------------------------------------
 
   Whois free client
 ]##
