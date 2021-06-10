@@ -3,7 +3,7 @@
   :Email: thiago@oxyoy.com
 
   **Created at:** 06/09/2021 12:05:16 Wednesday
-  **Modified at:** 06/09/2021 04:00:44 PM Wednesday
+  **Modified at:** 06/09/2021 10:21:05 PM Wednesday
 
   ------------------------------------------------------------------------------
 
@@ -22,8 +22,8 @@ The Whois.nim is a simple whois client.
 
 ## Requirements
 
-- The Nim ([Official website](https://nim-lang.org/)) programming language
-- Nimble ([Github](https://github.com/nim-lang/nimble)), the Nim`s package manager
+- The Nim ([Official website](https://nim-lang.org/)) programming language (Min version 1.4.0)
+- Nimble ([Github](https://github.com/nim-lang/nimble)), the Nim's package manager
 
 Hint: Install Nim with Choosenim ([Github](https://github.com/dom96/choosenim))
 
@@ -32,7 +32,16 @@ Hint: Install Nim with Choosenim ([Github](https://github.com/dom96/choosenim))
 Directly with Nimble
 
 ```bash
-# Install directly (with Nimble)
+# Install directly with Nimble
+nimble install whois
+```
+
+or
+
+Directly with Nimble (with url)
+
+```bash
+# Install directly with Nimble (with url)
 nimble install https://gitea.com/Thisago/whois.nim
 ```
 

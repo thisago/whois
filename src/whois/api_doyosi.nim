@@ -3,7 +3,7 @@
   :Email: thiago@oxyoy.com
 
   **Created at:** 06/07/2021 10:36:49 Monday
-  **Modified at:** 06/09/2021 12:37:40 PM Wednesday
+  **Modified at:** 06/09/2021 09:26:33 PM Wednesday
 
   ----
 
@@ -105,7 +105,7 @@ proc parse(self: var Domain, data: string) =
     whoisDBLastUpdate = data.get("Last update of whois database: ").toDate
     whoisServer = data.get("Registrar WHOIS Server: ")
 
-  self.data.nameServers = collect:
+  block:
     const toFind = "Name Server: " # The value name to get
     var
       mdata = data # A mutable copy of data
@@ -116,8 +116,7 @@ proc parse(self: var Domain, data: string) =
                                                       # on itself
       index = mdata.find toFind # update the index
 
-      #[ collect ]#
-      mdata.substr( # Delete all from newline
+      self.data.nameServers.add mdata.substr( # Delete all from newline
         0, mdata.find(apiConfigs.messageNewline) - 1)
 
 
