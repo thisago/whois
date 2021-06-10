@@ -3,7 +3,7 @@
   :Email: thiago@oxyoy.com
 
   **Created at:** 06/06/2021 23:24:50 Sunday
-  **Modified at:** 06/09/2021 10:49:16 PM Wednesday
+  **Modified at:** 06/09/2021 11:02:10 PM Wednesday
 
   ------------------------------------------------------------------------------
 
@@ -43,9 +43,6 @@ proc whois*(domain: string, noCache = false): Domain {.inline.} =
   ## .. code-block:: nim
   ##   var domain = "duckduckgo.com".toDomain
   ##   domain.update()
-  runnableExamples:
-    assert whois("bing.com").avaliable == false
-    assert whois("google.com").registrantOrganization == "Google Inc."
   result = domain.toDomain()
   result.update(noCache)
 
