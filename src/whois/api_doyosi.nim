@@ -1,15 +1,12 @@
+#[
+  Created at: 06/07/2021 10:36:49 Monday
+  Modified at: 09/17/2021 12:42:19 AM Friday
+
+        Copyright (C) 2021 Thiago Navarro
+  See file "license" for details about copyright
+]#
+
 ##[
-  :Author: Thiago Navarro
-  :Email: thiago@oxyoy.com
-
-  **Created at:** 06/07/2021 10:36:49 Monday
-  **Modified at:** 06/09/2021 10:49:48 PM Wednesday
-
-  ------------------------------------------------------------------------------
-
-  api_doyosi
-  ------------------------------------------------------------------------------
-
   Doyosi free API implementation
 
   API source code: https://github.com/Karyazilim/DoyosiWhois

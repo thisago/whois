@@ -1,17 +1,11 @@
-##[
-  :Author: Thiago Navarro
-  :Email: thiago@oxyoy.com
+#[
+  Created at: 06/06/2021 23:24:50 Sunday
+  Modified at: 09/17/2021 12:42:37 AM Friday
 
-  **Created at:** 06/06/2021 23:24:50 Sunday
-  **Modified at:** 06/09/2021 11:02:10 PM Wednesday
+        Copyright (C) 2021 Thiago Navarro
+  See file "license" for details about copyright
+]#
 
-  ------------------------------------------------------------------------------
-
-  whois
-  ------------------------------------------------------------------------------
-
-  Whois free client
-]##
 
 from std/strutils import split, strip
 

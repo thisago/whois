@@ -1,16 +1,10 @@
-##[
-  | :Author: Thiago Navarro
-  | :Email: thiago@oxyoy.com
-  | **Created at:** 06/06/2021 23:22:26 Sunday
-  | **Modified at:** 06/09/2021 12:25:15 PM Wednesday
+#[
+  Created at: 06/06/2021 23:22:26 Sunday
+  Modified at: 09/17/2021 12:41:44 AM Friday
 
-  ----
-
-  test1
-  ----
-
-  Whois lib test
-]##
+        Copyright (C) 2021 Thiago Navarro
+  See file "license" for details about copyright
+]#
 
 import unittest
 

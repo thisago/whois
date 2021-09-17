@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.1.0"
+version       = "1.0.2"
 author        = "Thiago Navarro"
 description   = "A simple and free whois client"
 license       = "MIT"

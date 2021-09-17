@@ -1,14 +1,9 @@
 <!--
-  :Author: Thiago Navarro
-  :Email: thiago@oxyoy.com
+  Created at: 06/09/2021 12:05:16 Wednesday
+  Modified at: 09/17/2021 12:36:23 AM Friday
 
-  **Created at:** 06/09/2021 12:05:16 Wednesday
-  **Modified at:** 06/09/2021 10:21:05 PM Wednesday
-
-  ------------------------------------------------------------------------------
-
-  readme
-  ------------------------------------------------------------------------------
+        Copyright (C) 2021 Thiago Navarro
+  See file "license" for details about copyright
 -->
 
 <!-- Hello! Thanks for interest in my lib! :) -->
@@ -42,7 +37,7 @@ Directly with Nimble (with url)
 
 ```bash
 # Install directly with Nimble (with url)
-nimble install https://gitea.com/Thisago/whois.nim
+nimble install https://github.com/thisago/whois.nim
 ```
 
 or
@@ -51,7 +46,7 @@ Manually with Nimble
 
 ```bash
 # Clone repo
-git clone https://gitea.com/Thisago/whois.nim
+git clone https://github.com/thisago/whois.nim
 
 # go to folder
 cd whois
@@ -84,6 +79,10 @@ nim c -r -d:ssl -d:release example/example.nim
 ```
 
 NOTE: Compile with `-d:ssl`
+
+## TODO
+
+- [ ] Change the nimble package url from gitea to github
 
 ---
 

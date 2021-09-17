@@ -1,17 +1,10 @@
-##[
-  :Author: Thiago Navarro
-  :Email: thiago@oxyoy.com
+#[
+  Created at: 06/07/2021 10:38:20 Monday
+  Modified at: 09/17/2021 12:42:12 AM Friday
 
-  **Created at:** 06/07/2021 10:38:20 Monday
-  **Modified at:** 06/09/2021 10:50:12 PM Wednesday
-
-  ------------------------------------------------------------------------------
-
-  core
-  ------------------------------------------------------------------------------
-
-  Whois Core
-]##
+        Copyright (C) 2021 Thiago Navarro
+  See file "license" for details about copyright
+]#
 
 from std/times import DateTime, utc, parse
 from httpcore import HttpCode
