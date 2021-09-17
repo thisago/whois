@@ -1,0 +1,1 @@
+apiFetch	whois/api_doyosi.html#apiFetch,Domain	api_doyosi: apiFetch(self: var Domain; noCache = false): bool	

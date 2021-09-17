@@ -1,0 +1,3 @@
+toDomain	whois.html#toDomain,string	whois: toDomain(fullDomain: string): Domain	
+update	whois.html#update,Domain	whois: update(self: var Domain; noCache = false)	
+whois	whois.html#whois,string	whois: whois(domain: string; noCache = false): Domain	

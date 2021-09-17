@@ -1,0 +1,7 @@
+DomainError	whois/core.html#DomainError	core: DomainError	
+DomainData	whois/core.html#DomainData	core: DomainData	
+Domain	whois/core.html#Domain	core: Domain	
+ApiResponse	whois/core.html#ApiResponse	core: ApiResponse	
+full	whois/core.html#full,Domain	core: full(self: Domain): string	
+`==`	whois/core.html#==,Domain,Domain	core: `==`(a, b: Domain): bool	
+toDate	whois/core.html#toDate,string	core: toDate(s: string): DateTime	
