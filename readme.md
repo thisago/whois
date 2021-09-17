@@ -1,6 +1,6 @@
 <!--
   Created at: 06/09/2021 12:05:16 Wednesday
-  Modified at: 09/17/2021 12:36:23 AM Friday
+  Modified at: 09/17/2021 12:46:24 AM Friday
 
         Copyright (C) 2021 Thiago Navarro
   See file "license" for details about copyright
@@ -55,7 +55,9 @@ cd whois
 nimble install -y
 ```
 
----
+## Docs
+
+You can find the [docs in Github pages](https://thisago.github.io/whois/whois.html)
 
 ## Usage
 
@@ -84,7 +86,6 @@ NOTE: Compile with `-d:ssl`
 
 - [ ] Change the nimble package url from gitea to github
 
----
 
 ## Contributing
 
