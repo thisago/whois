@@ -13,6 +13,8 @@
 The Whois.nim is a simple whois client.
 **With cache (kashae)!**
 
+**The doyosi whois demo website is down, to use this lib you will need an instance of that**
+
 ---
 
 ## Requirements
